@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700&display=swap");
+
+button,
+button:hover,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+  background-color: transparent;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  border-style: solid;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  /* font-family: "Prompt"; */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body,
+:root {
+  height: 100vh;
+}
+
+/* React Quill Css custom */
+.ql-editor {
+  max-height: 700px;
+}
+.ql-align-center {
+  text-align: center;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-size-small {
+  font-size: 12px;
+}
+
+.ql-size-large {
+  font-size: 24px;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+  font-size: 1em !important;
+}
+.ql-snow .ql-picker.ql-header .ql-picker-item::before {
+  font-size: 1em !important;
+}
+
+blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+
+.ql-editor.ql-blank,
+.ql-editor {
+  min-height: 200px;
+}
+
+.ql-tooltip.ql-editing {
+  z-index: 5000;
+}
+
+/* Set dropdown font-families */
+#toolbar-container .ql-font span[data-label="arial"]::before {
+  font-family: "Arial";
+}
+#toolbar-container .ql-font span[data-label="comic-sans"]::before {
+  font-family: "Comic-sans";
+}
+#toolbar-container .ql-font span[data-label="courier-new"]::before {
+  font-family: "Courier-new";
+}
+#toolbar-container .ql-font span[data-label="georgia"]::before {
+  font-family: "Georgia";
+}
+#toolbar-container .ql-font span[data-label="helvetica"]::before {
+  font-family: "Helvetica";
+}
+#toolbar-container .ql-font span[data-label="lucida"]::before {
+  font-family: "Lucida";
+}
+#toolbar-container .ql-font span[data-label="prompt"]::before {
+  font-family: "Prompt";
+}
+
+/* Set content font-families */
+.ql-font-arial {
+  font-family: "Arial";
+}
+.ql-font-comic-sans {
+  font-family: "Comic-sans";
+}
+.ql-font-courier-new {
+  font-family: "Courier-new";
+}
+.ql-font-georgia {
+  font-family: "Georgia";
+}
+.ql-font-helvetica {
+  font-family: "Helvetica";
+}
+.ql-font-lucida {
+  font-family: "Lucida";
+}
+.ql-font-prompt {
+  font-family: "Prompt";
+}
