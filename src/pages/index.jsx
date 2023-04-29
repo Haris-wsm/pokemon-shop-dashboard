@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Card,
+  CircularProgress,
   Divider,
   Grid,
   IconButton,
@@ -38,6 +39,7 @@ const Login = () => {
   const router = useRouter();
 
   const handleSingIn = async () => {
+    setLoading(true);
     const status = await signIn("credentials", {
       redirect: false,
       email: email,
@@ -47,11 +49,16 @@ const Login = () => {
 
     if (status.error) {
       toast.error("เข้าสู่ระบบล้มเหลว");
+      setLoading(false);
       return;
     } else {
       router.push(status.url);
     }
   };
+
+  // Button Loadding
+
+  const [loading, setLoading] = useState(false);
 
   return (
     <Box className="w-screen min-h-screen bg-bgLight ">
@@ -125,8 +132,15 @@ const Login = () => {
                       className="bg-main text-white hover:bg-main px-5 py-2  mx-auto xs:text-sm rounded-lg"
                       fullWidth
                       onClick={handleSingIn}
+                      disabled={loading}
                     >
-                      Sign In
+                      {loading && (
+                        <CircularProgress
+                          size={24}
+                          className="mx-3 text-slate-200"
+                        />
+                      )}
+                      {loading ? "Loading" : "  Sign In"}
                     </Button>
                   </Box>
                 </Box>

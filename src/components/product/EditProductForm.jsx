@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  CircularProgress,
   Divider,
   FormControl,
   FormControlLabel,
@@ -65,6 +66,7 @@ const EditProductForm = ({ product }) => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const [loading, setLoading] = useState(true);
+  const [btnLoading, setBtnLoading] = useState(false);
 
   const [productName, setProductName] = useState(product.name);
   const [price, setPrice] = useState(product.price);
@@ -116,6 +118,8 @@ const EditProductForm = ({ product }) => {
       //   const titleImage = await uploadImageTitle(data.titleImage[0].file);
       //   const galleryImages = await uploadImageGallery(data.gallery);
 
+      setBtnLoading(true);
+
       let titleImage;
       let galleryImages;
       if (hasUploadFile(imageTitle)) {
@@ -148,6 +152,7 @@ const EditProductForm = ({ product }) => {
     } catch (error) {
       console.log(error);
       toast.error("เกิดข้อผิดพลาด");
+      setBtnLoading(false);
     }
   };
 
@@ -543,10 +548,13 @@ const EditProductForm = ({ product }) => {
           <Button
             size="large"
             className="bg-red-400 hover:bg-red-500 text-white w-full md:w-[20%] mx-0 md:mx-auto"
-            startIcon={<AddCircleOutlineIcon />}
             type="submit"
+            disabled={btnLoading}
           >
-            อัพเดตสินค้า!
+            {btnLoading && (
+              <CircularProgress size={24} className="mx-3 text-slate-200" />
+            )}
+            {btnLoading ? "Loading" : "  อัพเดตสินค้า!"}
           </Button>
         </Box>
       </form>

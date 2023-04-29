@@ -4,6 +4,7 @@ import {
   Avatar,
   Box,
   Button,
+  CircularProgress,
   Divider,
   FormControl,
   FormControlLabel,
@@ -67,6 +68,10 @@ const AddProductForm = () => {
   // Images
   const [imageTitle, setImageTitle] = useState([]);
   const [imageGallery, setImageGallery] = useState([]);
+
+  // Button Loadding
+
+  const [loading, setLoading] = useState(false);
 
   const handleSelectChange = (e) => {
     const { value } = e.target;
@@ -151,6 +156,7 @@ const AddProductForm = () => {
 
   const onSubmit = async (data) => {
     try {
+      setLoading(true);
       const titleImage = await uploadImageTitle(data.titleImage[0].file);
       const galleryImages = await uploadImageGallery(data.gallery);
 
@@ -173,9 +179,11 @@ const AddProductForm = () => {
 
       toast.success(res.data.message);
       resetForm();
+      setLoading(false);
     } catch (error) {
       console.log(error);
       toast.error("เกิดข้อผิดพลาด");
+      setLoading(false);
     }
   };
 
@@ -569,10 +577,14 @@ const AddProductForm = () => {
           <Button
             size="large"
             className="bg-red-400 hover:bg-red-500 text-white w-full md:w-[20%] mx-0 md:mx-auto"
-            startIcon={<AddCircleOutlineIcon />}
             type="submit"
+            disabled={loading}
           >
-            เพิ่มสินค้า!
+            {loading && (
+              <CircularProgress size={24} className="mx-3 text-slate-200" />
+            )}
+            {loading ? "Loading" : " เพิ่มสินค้า!"}
+            {/* เพิ่มสินค้า! */}
           </Button>
         </Box>
       </form>
