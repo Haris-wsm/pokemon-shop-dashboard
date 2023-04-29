@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import "react-quill/dist/quill.snow.css";
 import theme from "@/util/Theme";
+import { StyledEngineProvider } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,11 +15,13 @@ export default function App({
   pageProps: { session, ...pageProps },
 }) {
   return (
-    <SessionProvider session={session}>
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-        <ToastContainer position="bottom-left" />
-      </ThemeProvider>
-    </SessionProvider>
+    <StyledEngineProvider injectFirst>
+      <SessionProvider session={session}>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+          <ToastContainer position="bottom-left" />
+        </ThemeProvider>
+      </SessionProvider>
+    </StyledEngineProvider>
   );
 }
