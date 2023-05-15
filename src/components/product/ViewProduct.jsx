@@ -106,6 +106,7 @@ const ViewProduct = ({ product }) => {
                       alt="product-title"
                       width={200}
                       height={200}
+                      className="w-[200px] h-auto"
                     />
                   </Box>
                 ))}
@@ -153,7 +154,7 @@ const ViewProduct = ({ product }) => {
                   ประเภทสินค้า:
                 </Typography>
                 <Typography className="text-slate-500 text-sm  font-semibold">
-                  {product.category.name}
+                  {product?.category?.name}
                 </Typography>
               </Box>
               <Box className="flex mb-4 items-center border-dotted border-b-2 border-gray-300 py-4">

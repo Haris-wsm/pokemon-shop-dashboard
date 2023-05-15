@@ -10,7 +10,7 @@ const schema = yup.object().shape({
     .min(1, "ราคาควรอย่างน้อยมากกว่า 1"),
   status: yup.string().required("สถานะสินค้าจำเป็น"),
   category: yup.string().required("ประเภทสินค้าจำเป็น"),
-  type: yup.string().required("ประเภทการขายจำเป็น"),
+  // type: yup.string().required("ประเภทการขายจำเป็น"),
   promotionSale: yup.boolean().notRequired(),
   promotionPrice: yup
     .number()

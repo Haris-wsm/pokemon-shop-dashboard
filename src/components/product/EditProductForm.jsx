@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Avatar,
   Box,
   Button,
   CircularProgress,
@@ -10,24 +9,14 @@ import {
   FormControlLabel,
   FormHelperText,
   Grid,
-  IconButton,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
   MenuItem,
   Select,
   Switch,
   TextField,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
-
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
-import TerminalIcon from "@mui/icons-material/Terminal";
 
 import ApiReq from "@/util/axios";
 import Link from "next/link";
@@ -94,7 +83,7 @@ const EditProductForm = ({ product }) => {
 
   // Categories
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState(product.category._id || "");
+  const [category, setCategory] = useState(product?.category?._id || "");
 
   const getCategories = async () => {
     try {
@@ -115,9 +104,6 @@ const EditProductForm = ({ product }) => {
 
   const onSubmit = async (data) => {
     try {
-      //   const titleImage = await uploadImageTitle(data.titleImage[0].file);
-      //   const galleryImages = await uploadImageGallery(data.gallery);
-
       setBtnLoading(true);
 
       let titleImage;
@@ -135,7 +121,7 @@ const EditProductForm = ({ product }) => {
         name: data.name,
         price: data.price,
         status: data.status,
-        isSetPackage: data.type,
+        isSetPackage: false,
         ref_category: data.category,
         sale: data.promotionSale,
         discount: data.promotionPrice,
@@ -331,8 +317,8 @@ const EditProductForm = ({ product }) => {
           <Grid item xs={12} md={6} className="px-5">
             <Typography className="text-xl mb-10 ">
               รายละเอียดเพิ่มเติม
-            </Typography>{" "}
-            <Box className="flex mb-6">
+            </Typography>
+            {/* <Box className="flex mb-6">
               <Typography className="w-[150px] text-slate-500 text-sm">
                 รูปแบบการขาย:
               </Typography>
@@ -374,7 +360,7 @@ const EditProductForm = ({ product }) => {
 
                 <FormHelperText>{errors.type?.message}</FormHelperText>
               </FormControl>
-            </Box>
+            </Box> */}
             <Box className="flex mb-6">
               <Typography className="w-[150px] text-slate-500 text-sm">
                 ประเภทสินค้า:

@@ -24,7 +24,6 @@ import {
 
 import Papa from "papaparse";
 
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import TerminalIcon from "@mui/icons-material/Terminal";
 
@@ -165,7 +164,7 @@ const AddProductForm = () => {
         price: data.price,
         status: data.status,
         inStock: data.stock,
-        isSetPackage: data.type,
+        isSetPackage: false,
         ref_category: data.category,
         sale: data.promotionSale,
         discount: data.promotionPrice,
@@ -362,8 +361,8 @@ const AddProductForm = () => {
           <Grid item xs={12} md={6} className="px-5">
             <Typography className="text-xl mb-10 ">
               รายละเอียดเพิ่มเติม
-            </Typography>{" "}
-            <Box className="flex mb-6">
+            </Typography>
+            {/* <Box className="flex mb-6">
               <Typography className="w-[150px] text-slate-500 text-sm">
                 รูปแบบการขาย:
               </Typography>
@@ -405,7 +404,7 @@ const AddProductForm = () => {
 
                 <FormHelperText>{errors.type?.message}</FormHelperText>
               </FormControl>
-            </Box>
+            </Box> */}
             <Box className="flex mb-6">
               <Typography className="w-[150px] text-slate-500 text-sm">
                 ประเภทสินค้า:

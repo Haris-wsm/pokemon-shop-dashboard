@@ -6,8 +6,6 @@ import DrawerPermanent from "../DrawerPermanent";
 const MainLayout = (props) => {
   const [drawerWidth, setDrawerWidth] = useLocalStorage("drawerWidth", 240);
 
-  console.log(drawerWidth);
-
   const handleDrawerWidthChange = (newWidth) => {
     setDrawerWidth(newWidth);
   };

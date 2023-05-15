@@ -1,19 +1,18 @@
 import { useRouter } from "next/router";
-import React, { Fragment, useEffect, useMemo, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import MultilineChartIcon from "@mui/icons-material/MultilineChart";
-import WebAssetOutlinedIcon from "@mui/icons-material/WebAssetOutlined";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 import AllInboxIcon from "@mui/icons-material/AllInbox";
 import ViewCarouselIcon from "@mui/icons-material/ViewCarousel";
 import AddIcon from "@mui/icons-material/Add";
-import LocalOfferOutlinedIcon from "@mui/icons-material/LocalOfferOutlined";
-import MoreOutlinedIcon from "@mui/icons-material/MoreOutlined";
-import BallotOutlinedIcon from "@mui/icons-material/BallotOutlined";
 import EditNoteIcon from "@mui/icons-material/EditNote";
 import MarkUnreadChatAltIcon from "@mui/icons-material/MarkUnreadChatAlt";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
+import SettingsIcon from "@mui/icons-material/Settings";
+import PublicIcon from "@mui/icons-material/Public";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
 
 import {
   Divider,
@@ -45,6 +44,7 @@ const DrawerPermanent = ({ width, setWidth }) => {
   const [openProduct, setOpenProduct] = useState(false);
   const [openEditPage, setOpenEditPage] = useState(false);
   const [openBlog, setOpenBlog] = useState(false);
+  const [openSetting, setSetting] = useState(false);
 
   const [selectedItemListMainIndex, setSelectedItemListMainIndex] = useState(0);
   const [selectedItemListSubIndex, setSelectedItemListSubIndex] = useState(0);
@@ -59,6 +59,7 @@ const DrawerPermanent = ({ width, setWidth }) => {
     setOpenProduct(false);
     setOpenEditPage(false);
     setOpenBlog(false);
+    setSetting(false);
 
     setSelectedItemListMainIndex(index);
     if (index === 0) {
@@ -69,6 +70,8 @@ const DrawerPermanent = ({ width, setWidth }) => {
       setOpenEditPage(!openEditPage);
     } else if (index === 3) {
       setOpenBlog(!openBlog);
+    } else if (index === 4) {
+      setSetting(!openSetting);
     }
   };
   const menuItems = [
@@ -120,6 +123,11 @@ const DrawerPermanent = ({ width, setWidth }) => {
           path: "/banner/view",
         },
         {
+          text: "Hero Section",
+          icon: <EditNoteIcon />,
+          path: "/editor/hero-section",
+        },
+        {
           text: "Terms of Service",
           icon: <EditNoteIcon />,
           path: "/editor/term-of-service",
@@ -151,6 +159,24 @@ const DrawerPermanent = ({ width, setWidth }) => {
           text: "สร้างบล็อค",
           icon: <DesignServicesIcon />,
           path: "/blog/create",
+        },
+      ],
+    },
+    {
+      id: 6,
+      text: "การตั้งค่า",
+      icon: <SettingsIcon />,
+      open: openSetting,
+      subMenus: [
+        {
+          text: "Socail",
+          icon: <PublicIcon />,
+          path: "/setting/social",
+        },
+        {
+          text: "Contact",
+          icon: <ContactMailIcon />,
+          path: "/setting/contact",
         },
       ],
     },

@@ -11,7 +11,7 @@ const nextConfig = {
       // },
       {
         protocol: "https",
-        hostname: "pokemon-card-backend.onrender.com",
+        hostname: "http://178.128.113.92",
         // port: "4000",
         pathname: "/images/**",
       },
