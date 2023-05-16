@@ -9,9 +9,15 @@ const nextConfig = {
       //   port: "4000",
       //   pathname: "/images/**",
       // },
+      // {
+      //   protocol: "https",
+      //   hostname: "http://178.128.113.92",
+      //   // port: "4000",
+      //   pathname: "/images/**",
+      // },
       {
         protocol: "https",
-        hostname: "http://178.128.113.92",
+        hostname: "www.poke-api.online",
         // port: "4000",
         pathname: "/images/**",
       },
