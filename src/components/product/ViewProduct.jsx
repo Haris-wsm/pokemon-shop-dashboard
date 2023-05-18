@@ -94,11 +94,26 @@ const ViewProduct = ({ product }) => {
           <Box className="my-5">
             <Box>
               <Carousel
-                responsive={responsive}
                 additionalTransfrom={0}
                 arrows
-                containerClass="carousel-container"
-                itemClass="carousel-item-padding-40-px"
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className=""
+                containerClass="container-with-dots"
+                dotListClass=""
+                draggable
+                focusOnSelect={false}
+                // infinite
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                pauseOnHover
+                renderArrowsWhenDisabled={false}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                responsive={responsive}
+                // containerClass="carousel-container"
+                // itemClass="carousel-item-padding-40-px"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
               >
                 {product?.gallery?.map((path, i) => (
