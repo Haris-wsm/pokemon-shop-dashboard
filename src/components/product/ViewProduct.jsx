@@ -14,7 +14,7 @@ import "react-multi-carousel/lib/styles.css";
 
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import QrCodeIcon from "@mui/icons-material/QrCode";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 const responsive = {
   superLargeDesktop: {
@@ -95,20 +95,21 @@ const ViewProduct = ({ product }) => {
             <Box>
               <Carousel
                 responsive={responsive}
+                additionalTransfrom={0}
+                arrows
                 containerClass="carousel-container"
                 itemClass="carousel-item-padding-40-px"
                 removeArrowOnDeviceType={["tablet", "mobile"]}
               >
                 {product?.gallery?.map((path, i) => (
-                  <Box key={i}>
-                    <Image
-                      src={getImageBaseURL(path)}
-                      alt="product-title"
-                      width={200}
-                      height={200}
-                      className="w-[200px] h-auto"
-                    />
-                  </Box>
+                  <Image
+                    src={getImageBaseURL(path)}
+                    alt="product-title"
+                    width={200}
+                    height={200}
+                    className="w-[200px] h-auto"
+                    key={i}
+                  />
                 ))}
               </Carousel>
             </Box>
