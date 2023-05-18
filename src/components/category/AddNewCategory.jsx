@@ -17,7 +17,9 @@ const AddNewCategory = () => {
     }
 
     try {
-      const res = await ApiReq.post("/api/categories", { name: newCategory });
+      const res = await ApiReq.post("/api/categories", {
+        name: newCategory.trim(),
+      });
       toast.success(res.data.message);
       setNewCategory("");
       window.location.reload();
