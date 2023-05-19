@@ -57,8 +57,8 @@ const CouroselGallery = (props) => {
         <Image
           src={getImageBaseURL(url)}
           alt="Banner Image"
-          width={100}
-          height={100}
+          width={120}
+          height={120}
           priority
           //   className="w-[100px] md:w-[100px] h-[auto]"
           key={index}
