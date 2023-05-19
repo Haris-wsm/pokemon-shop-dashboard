@@ -49,6 +49,19 @@ body,
   height: 100vh;
 }
 
+/* Custom Carousel */
+.gallery.react-multi-carousel-list {
+  position: unset !important;
+}
+
+.gallery .react-multiple-carousel__arrow--left {
+  left: calc(-8% + 1px) !important;
+}
+
+.gallery .react-multiple-carousel__arrow--right {
+  right: calc(-1% + 1px) !important;
+}
+
 /* React Quill Css custom */
 .ql-editor {
   max-height: 700px;

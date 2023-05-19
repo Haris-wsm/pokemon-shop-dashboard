@@ -2,14 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    // domains: ["localhost"],
+    domains: ["localhost"],
     remotePatterns: [
-      // {
-      //   protocol: "https",
-      //   hostname: "http://localhost",
-      //   // port: "4000",
-      //   pathname: "/images/**",
-      // },
+      {
+        protocol: "https",
+        hostname: "http://localhost",
+        // port: "4000",
+        pathname: "/images/**",
+      },
       {
         protocol: "https",
         hostname: "www.poke-api.online",

@@ -9,18 +9,18 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import "react-multi-carousel/lib/styles.css";
 
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import QrCodeIcon from "@mui/icons-material/QrCode";
 import { useRouter } from "next/router";
+import CouroselGallery from "../CouroselGallery";
 
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-    slidesToSlide: 5, // optional, default to 1.
+    items: 4,
+    slidesToSlide: 4, // optional, default to 1.
   },
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
@@ -30,6 +30,7 @@ const responsive = {
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 3,
+    slidesToSlide: 3,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
@@ -50,7 +51,7 @@ const ViewProduct = ({ product }) => {
   };
 
   return (
-    <Box>
+    <Box className="xs:w-[100%] md:w-[90%] lg:w-4/5 mx-auto px-5 md:px-0">
       <Box className="flex items-center gap-4 border-gray-300 rounded-md border w-fit px-2 py-2 mb-5 mx-auto text-slate-500">
         <Box
           className="cursor-pointer hover:text-slate-700 flex items-center gap-2 group"
@@ -77,7 +78,8 @@ const ViewProduct = ({ product }) => {
       <Divider className="mb-10 w-1/2 mx-auto" />
       <Grid container spacing={3}>
         <Grid item xs={12} sm={12} md={6}>
-          <Box className="flex flex-col justify-center items-center my-5">
+          <Box className="">
+            {/* <Box className="flex flex-col justify-center items-center my-5"> */}
             <Image
               src={getImageBaseURL(product.image)}
               alt="product-title"
@@ -91,46 +93,11 @@ const ViewProduct = ({ product }) => {
           </Box>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
-          <Box className="my-5">
-            <Box>
-              <Carousel
-                additionalTransfrom={0}
-                arrows
-                autoPlaySpeed={3000}
-                centerMode={false}
-                className=""
-                containerClass="container-with-dots"
-                dotListClass=""
-                draggable
-                focusOnSelect={false}
-                // infinite
-                itemClass=""
-                keyBoardControl
-                minimumTouchDrag={80}
-                pauseOnHover
-                renderArrowsWhenDisabled={false}
-                renderButtonGroupOutside={false}
-                renderDotsOutside={false}
-                responsive={responsive}
-                // containerClass="carousel-container"
-                // itemClass="carousel-item-padding-40-px"
-                removeArrowOnDeviceType={["tablet", "mobile"]}
-              >
-                {product?.gallery?.map((path, i) => (
-                  <Image
-                    src={getImageBaseURL(path)}
-                    alt="product-title"
-                    width={200}
-                    height={200}
-                    className="w-[200px] h-auto"
-                    key={i}
-                  />
-                ))}
-              </Carousel>
-            </Box>
-            <Typography className="text-slate-600 text-sm text-center my-5">
+          <Box className="my-5 relative">
+            <CouroselGallery gallery={product.gallery} />
+            {/* <Typography className="text-slate-600 text-sm text-center my-5">
               รูปภาพแกลลอรี่
-            </Typography>
+            </Typography> */}
           </Box>
         </Grid>
       </Grid>
