@@ -36,7 +36,7 @@ const Social = (props) => {
 
   const getDomainHTTP = (url) => {
     if (url === "") return url;
-    if (!url.includes(["http", "https"])) {
+    if (!url.includes("http") && !url.includes("https")) {
       return "https://" + url;
     }
 
