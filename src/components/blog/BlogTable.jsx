@@ -12,6 +12,7 @@ import Image from "next/image";
 import React, { useMemo, useState } from "react";
 import EditTwoToneIcon from "@mui/icons-material/EditTwoTone";
 import DeleteSweepTwoToneIcon from "@mui/icons-material/DeleteSweepTwoTone";
+import PushPinIcon from "@mui/icons-material/PushPin";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import ApiReq from "@/util/axios";
@@ -125,10 +126,29 @@ const BlogTable = (props) => {
         },
       },
       {
+        field: "pin",
+        headerName: "ปักหมุด",
+        headerAlign: "center",
+        minWidth: 120,
+        renderCell: (params) => {
+          const { pin } = params.row;
+
+          return (
+            <Box className="flex justify-center w-full">
+              {pin && (
+                <Tooltip title="บล็อกถูกปักหมุด จะแสดงบนหน้าหลัก">
+                  <PushPinIcon className="text-red-500" />
+                </Tooltip>
+              )}
+            </Box>
+          );
+        },
+      },
+      {
         field: "publish",
         headerName: "สถานะ",
         headerAlign: "center",
-        minWidth: 220,
+        minWidth: 120,
         renderCell: (params) => {
           const { publish } = params.row;
 

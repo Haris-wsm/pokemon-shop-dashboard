@@ -25,6 +25,7 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [slug, setSlug] = useState("");
   const [isPublish, setIsPublish] = useState(true);
+  const [isPin, setIsPin] = useState(false);
   const [text, setText] = useState("");
 
   const router = useRouter();
@@ -59,8 +60,11 @@ const Form = () => {
         title: data.title,
         slug: slug,
         publish: data.publish,
+        pin: data.pin,
         rawHtml: text,
       };
+
+      console.log(payload);
 
       await ApiReq.post("/api/blog", payload);
       toast.success("เพิ่มบล็อกใหม่สำเร็จ");
@@ -80,7 +84,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="pb-10">
       <Grid container spacing={4}>
         <Grid item xs={12} sm={12} md={6} className="my-5">
           <Box className="py-2">
@@ -158,6 +162,27 @@ const Form = () => {
                       control={<Switch checked={isPublish} />}
                       onChange={(e) => {
                         setIsPublish(e.target.checked);
+                        onChange(e.target.checked);
+                      }}
+                    />
+                  )}
+                />
+              </FormControl>
+            </Box>
+            <Box className="flex gap-3 flex-wrap items-center ">
+              <Typography className="text-slate-500 my-3 text-sm w-[120px]">
+                ปักหมุด
+              </Typography>
+              <FormControl {...register("pin")}>
+                <Controller
+                  name="pin"
+                  control={control}
+                  value={isPin}
+                  render={({ field: { onChange } }) => (
+                    <FormControlLabel
+                      control={<Switch checked={isPin} />}
+                      onChange={(e) => {
+                        setIsPin(e.target.checked);
                         onChange(e.target.checked);
                       }}
                     />

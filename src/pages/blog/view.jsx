@@ -16,6 +16,8 @@ export const getServerSideProps = withAuth(async (context) => {
 const BlogView = (props) => {
   if (props.error) return;
 
+  console.log(props.blogs);
+
   return (
     <MainLayout>
       <PageLayout title="All Blog">

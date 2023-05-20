@@ -26,6 +26,7 @@ const FormEdit = ({ blog }) => {
   const [title, setTitle] = useState(blog.title);
   const [slug, setSlug] = useState(blog.slug);
   const [isPublish, setIsPublish] = useState(blog.publish);
+  const [pin, setPin] = useState(blog.pin);
   const [text, setText] = useState(blog.raw_html);
   const [loading, setLoading] = useState(true);
 
@@ -71,6 +72,7 @@ const FormEdit = ({ blog }) => {
         title: data.title,
         slug: slug,
         publish: data.publish,
+        pin: data.pin,
         raw_html: text,
       };
 
@@ -98,7 +100,7 @@ const FormEdit = ({ blog }) => {
 
   if (loading) return;
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="py-10">
       <Grid container spacing={4}>
         <Grid item xs={12} sm={12} md={6} className="my-5">
           <Box className="py-2">
@@ -176,6 +178,27 @@ const FormEdit = ({ blog }) => {
                       control={<Switch checked={isPublish} />}
                       onChange={(e) => {
                         setIsPublish(e.target.checked);
+                        onChange(e.target.checked);
+                      }}
+                    />
+                  )}
+                />
+              </FormControl>
+            </Box>
+            <Box className="flex gap-3 flex-wrap items-center ">
+              <Typography className="text-slate-500 my-3 text-sm w-[120px]">
+                ปักหมุด
+              </Typography>
+              <FormControl {...register("pin")}>
+                <Controller
+                  name="pin"
+                  control={control}
+                  value={pin}
+                  render={({ field: { onChange } }) => (
+                    <FormControlLabel
+                      control={<Switch checked={pin} />}
+                      onChange={(e) => {
+                        setPin(e.target.checked);
                         onChange(e.target.checked);
                       }}
                     />
