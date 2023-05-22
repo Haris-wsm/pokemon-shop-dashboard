@@ -55,7 +55,9 @@ const CodeAdding = () => {
         const data = parsed.data;
         // Remove the last column from array that was have default value to ''
         data.pop();
-        const allCode = data.map((c) => ({ code: Object.values(c)[0] }));
+        let allCode = data.map((c) => ({ code: Object.values(c)[0] }));
+
+        allCode = allCode.filter((c) => c.code !== "");
         setCodes(allCode);
       } else {
         toast.error("รูปแบบไฟล์ไม่ถูกต้อง");

@@ -107,7 +107,9 @@ const AddProductForm = () => {
         const data = parsed.data;
         // Remove the last column from array that was have default value to ''
         data.pop();
-        const allCode = data.map((c) => ({ code: Object.values(c)[0] }));
+        let allCode = data.map((c) => ({ code: Object.values(c)[0] }));
+
+        allCode = allCode.filter((c) => c.code !== "");
         setCodes(allCode);
       } else {
         toast.error("รูปแบบไฟล์ไม่ถูกต้อง");
@@ -497,13 +499,13 @@ const AddProductForm = () => {
                 {...register("promotionPrice")}
                 error={errors.promotionPrice}
                 helperText={errors.promotionPrice?.message}
-                value={productPromotionPrice}
-                onChange={(e) => setProductPromotionPrice(e.target.value)}
+                // value={productPromotionPrice}
+                // onChange={(e) => setProductPromotionPrice(e.target.value)}
                 fullWidth
                 placeholder="จำนวนส่วนลด"
                 size="small"
                 type="number"
-                name="stock"
+                name="promotionPrice"
               />
             </Box>
           </Grid>
