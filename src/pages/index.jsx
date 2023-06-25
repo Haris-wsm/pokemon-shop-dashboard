@@ -63,7 +63,7 @@ const Login = () => {
   return (
     <Box className="w-screen min-h-screen bg-bgLight ">
       <Box className="flex justify-center items-center w-full h-screen">
-        <Card className=" w-1/2 xs:w-full sm:w-[70%] mx-0 xs:mx-3">
+        <Card className="w-1/2 xs:w-full sm:w-[70%] mx-0 xs:mx-3">
           <Grid container spacing={6}>
             {/* Form section */}
             <Grid item xs={12} sm={12} md={6}>

@@ -184,6 +184,27 @@ const CodeTable = ({ codes: codesData }) => {
 
     setCodes(filteredCodes);
   };
+
+  const [deletionList, setDeletionList] = useState([]);
+
+  const addToDeletionList = (list) => {
+    setDeletionList(list);
+  };
+
+  const requestDeletionList = async () => {
+    try {
+      console.log(deletionList);
+      await ApiReq.post("/api/codes/list", { codes: deletionList });
+
+      // toast.success("ลบข้อมูลสำเร็จ");
+
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+      toast.error("เกิดข้อผิดพลาด");
+    }
+  };
+
   return (
     <Box className="mt-10">
       <Typography className="text-md px-5">รหัสทั้งหมด</Typography>
@@ -229,11 +250,35 @@ const CodeTable = ({ codes: codesData }) => {
         </Box>
       </Box>
 
+      {deletionList.length > 0 && (
+        <Box className="px-5 py-5 bg-red-50 space-y-2 rounded-sm">
+          <Button
+            size="small"
+            className="text-white bg-red-500 hover:bg-red-600"
+            onClick={requestDeletionList}
+          >
+            ลบทั้งหมด {deletionList.length} โค้ด
+          </Button>
+          <Typography className="text-xs text-slate-500">
+            ลบโค้ดทั้งหมดตามจำนวนที่ทำการกดเลือก
+          </Typography>
+        </Box>
+      )}
+
       {/* Table */}
       <Box className="my-10">
         <DataGrid
           columns={columns}
           rows={codes}
+          // row selected
+          checkboxSelection
+          onRowSelectionModelChange={(newRowSelectionModel) => {
+            // setRowSelectionModel(newRowSelectionModel);'
+
+            addToDeletionList(newRowSelectionModel);
+          }}
+          // rowSelectionModel={rowSelectionModel}
+          disableRowSelectionOnClick
           autoHeight
           initialState={{
             pagination: { paginationModel: { pageSize: 25 } },
