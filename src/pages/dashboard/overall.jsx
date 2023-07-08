@@ -20,6 +20,8 @@ import { useSession } from "next-auth/react";
 import { withAuth } from "@/util/auth";
 import Widget from "@/components/dashboard/widget";
 import ApiReq from "@/util/axios";
+import AllSoldChart from "@/view/AllSoldChart";
+import AllTodayTable from "@/view/AllTodayTable";
 
 const Overall = (props) => {
   if (props.error) {
@@ -123,6 +125,12 @@ const Overall = (props) => {
                   />
                 </CardContent>
               </Card>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+              <AllTodayTable />
+            </Grid>
+            <Grid item xs={12} sm={12} md={12}>
+              <AllSoldChart />
             </Grid>
           </Grid>
         </Box>
