@@ -22,7 +22,7 @@ import Widget from "@/components/dashboard/widget";
 import ApiReq from "@/util/axios";
 import AllSoldChart from "@/view/AllSoldChart";
 import AllTodayTable from "@/view/AllTodayTable";
-import FacebookCaht from "@/components/FacebookCaht";
+// import FacebookCaht from "@/components/FacebookCaht";
 
 const Overall = (props) => {
   if (props.error) {
@@ -136,7 +136,7 @@ const Overall = (props) => {
           </Grid>
         </Box>
       </PageLayout>
-      <FacebookCaht />
+      {/* <FacebookCaht /> */}
     </MainLayout>
   );
 };
