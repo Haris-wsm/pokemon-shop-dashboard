@@ -44,8 +44,6 @@ const Contact = (props) => {
     }
   };
 
-  // console.log(errors);
-
   return (
     <MainLayout>
       <PageLayout title="ข้อมูลกการติดต่อ">

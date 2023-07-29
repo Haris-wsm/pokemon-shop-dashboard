@@ -13,6 +13,7 @@ import DesignServicesIcon from "@mui/icons-material/DesignServices";
 import SettingsIcon from "@mui/icons-material/Settings";
 import PublicIcon from "@mui/icons-material/Public";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 
 import {
   Divider,
@@ -177,6 +178,11 @@ const DrawerPermanent = ({ width, setWidth }) => {
           text: "Contact",
           icon: <ContactMailIcon />,
           path: "/setting/contact",
+        },
+        {
+          text: "Tag Website",
+          icon: <SellOutlinedIcon />,
+          path: "/setting/tag",
         },
       ],
     },
