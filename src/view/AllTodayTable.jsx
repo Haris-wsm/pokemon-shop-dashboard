@@ -49,6 +49,18 @@ const AllTodayTable = () => {
           return <Typography className="text-xs">{productName}</Typography>;
         },
       },
+      {
+        field: "total",
+        headerName: "จำนวน",
+        headerAlign: "center",
+        width: 200,
+        renderCell: (params) => {
+          const { total } = params.row;
+          return (
+            <Typography className="text-xs text-blue-800">{total}</Typography>
+          );
+        },
+      },
     ],
     []
   );
