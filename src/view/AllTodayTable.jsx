@@ -57,7 +57,9 @@ const AllTodayTable = () => {
         renderCell: (params) => {
           const { total } = params.row;
           return (
-            <Typography className="text-xs text-blue-800">{total}</Typography>
+            <Typography className="text-xs text-center text-blue-800">
+              {total}
+            </Typography>
           );
         },
       },
