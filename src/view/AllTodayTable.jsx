@@ -65,6 +65,22 @@ const AllTodayTable = () => {
           );
         },
       },
+      {
+        field: "totalIncome",
+        headerName: "เงินทั้งหมด (บาท)",
+        headerAlign: "center",
+        width: 200,
+        renderCell: (params) => {
+          const { totalIncome } = params.row;
+          return (
+            <Box className="w-full text-center">
+              <Typography className="text-xs  text-blue-800">
+                {totalIncome}
+              </Typography>
+            </Box>
+          );
+        },
+      },
     ],
     []
   );
