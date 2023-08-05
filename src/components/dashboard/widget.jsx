@@ -17,7 +17,7 @@ const Widget = ({ label, amount, Icon, sx }) => {
         <Box>
           <Typography className="text-xs text-gray-500">{label}</Typography>
           <Typography className="text-xs text-gray-500 mt-2 font-semibold">
-            {amount}
+            {amount?.toLocaleString()}
           </Typography>
         </Box>
       </Box>
