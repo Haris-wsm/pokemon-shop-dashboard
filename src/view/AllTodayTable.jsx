@@ -59,7 +59,7 @@ const AllTodayTable = () => {
           return (
             <Box className="w-full text-center">
               <Typography className="text-xs  text-blue-800">
-                {total}
+                {total?.toLocaleString()}
               </Typography>
             </Box>
           );
@@ -75,7 +75,7 @@ const AllTodayTable = () => {
           return (
             <Box className="w-full text-center">
               <Typography className="text-xs  text-blue-800">
-                {totalIncome}
+                {totalIncome?.toLocaleString()}
               </Typography>
             </Box>
           );
