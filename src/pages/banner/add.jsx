@@ -17,10 +17,7 @@ const AllBanner = () => {
   const [image, setImage] = useState([]);
 
   const {
-    register,
     handleSubmit,
-    setValue,
-    clearErrors,
     control,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
