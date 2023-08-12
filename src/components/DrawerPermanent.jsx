@@ -14,6 +14,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import PublicIcon from "@mui/icons-material/Public";
 import ContactMailIcon from "@mui/icons-material/ContactMail";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import CelebrationIcon from "@mui/icons-material/Celebration";
 
 import {
   Divider,
@@ -27,7 +28,6 @@ import {
   Drawer,
   useMediaQuery,
 } from "@mui/material";
-import { useTheme } from "@emotion/react";
 
 const DrawerPermanent = ({ width, setWidth }) => {
   // const [width, setWidth] = useState(drawerWidth);
@@ -122,6 +122,11 @@ const DrawerPermanent = ({ width, setWidth }) => {
           text: "Banner",
           icon: <ViewCarouselIcon />,
           path: "/banner/view",
+        },
+        {
+          text: "Announcement",
+          icon: <CelebrationIcon />,
+          path: "/announcement",
         },
         {
           text: "Hero Section",
