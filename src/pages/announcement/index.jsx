@@ -27,8 +27,8 @@ const Announcmennt = () => {
     ApiReq.get("/api/announcement")
       .then((response) => {
         const { data } = response.data;
-        setText(data.data);
-        setStatus(data.status);
+        setText(data.data ?? "");
+        setStatus(data.status ?? false);
       })
       .catch((e) => {
         console.error(e);
